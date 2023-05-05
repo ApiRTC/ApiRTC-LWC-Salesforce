@@ -5,12 +5,6 @@ This sample demonstrate how to integrate apiRTC in a LWC and use it in your Sale
 
 This enables you to use WebRTC to communicate from your Salesforce organisation to a Web application by using the [apiRTC](https://www.apirtc.com) platform
 
-Our sample is based on the "Hello World" Lightning Web Component creation in a scratch orgs that you can find [here](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.get_started_introduction).
-
-You can use this reference to understand how to start your Salesforce development environment.
-
-Then you will then find here the different necessary step to start / allow apiRTC to run in Salesforce and an LWC code sample.
-
 We demonstrate the possibility to :
 - join a conversation.
 - publish your stream : audio only, video only, audio and video, in this conversation.
@@ -18,6 +12,12 @@ We demonstrate the possibility to :
 - record the conversation and access to the associated media files
 
 Other apiRTC feature can also be implemented based on this tutorial.
+
+Our sample is based on the "Hello World" Lightning Web Component creation in a scratch orgs that you can find [here](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.get_started_sfdx_hello_world).
+
+You can use this reference to understand how to start your Salesforce development environment until the "Create a Lightning Web Component" step.
+
+Then you will then find here the different necessary steps to start and allow apiRTC to run in Salesforce and use our LWC code sample.
 
 ## Steps to allow apiRTC to run in your Salesforce environment
 
@@ -39,7 +39,6 @@ Then search for "static" in salesforce to add apiRTC :
 
 ![Load apiRTC as a static ressource!](/assets/images/static-ressources-2.png "Static ressources")
 
-
 ### Add necessary apiRTC server URLs as CSP Trusted site
 
 We need to add three URLs in the configuration.
@@ -51,21 +50,50 @@ Search for "trusted" in salesforce and apply the following configuration :
 
 ![apiRTC trusted sites!](/assets/images/trusted-sites.png "Trusted Sites")
 
-
 ### Make sure that Lightning Web Security is activated
 
 Lightning Web security is required to enable a correct access to WebRTC features
 
 ![Lightning Web Security!](/assets/images/session-settings.png "Lightning Web Security")
 
+## You are ready to load our LWC sample code in your salesforce environement
 
-## Some devlopments informations
+Get the code with :
+
+> git clone https://github.com/ApiRTC/ApiRTC-LWC-Salesforce.git
+
+Use our component source code in the force-app/main/default/lwc folder instead of "Create Lightning web components" step in [documentation](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.get_started_sfdx_hello_world).
+
+You can then continue with [Salesforce documentation step](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.get_started_sfdx_hello_world).
+
+- Push Source to the Scratch Org
+- Open the Scratch Org
+- Add the Component to a Lightning Page
+
+## Start an apiRTC conversation
+
+Our sample use our demo apiKey : myDemoApiKey
+
+```
+this.ua = new this.apiRTC.UserAgent({
+
+    //==============================
+    // TODO Change with your apiKey
+    //==============================
+    uri: 'apzkey:myDemoApiKey'
+});
+```
+
+With this apiKey, you can use our [conferencing tutorial](https://apizee.github.io/ApiRTC-examples/conferencing_mute_screen/) for a first try.
+
+Create your own count [here](https://cloud.apirtc.com/register)
+
+## Some development information
 
 As you will see in our source code sample usage of loadScript() is mandatory to load library in LWC :
 
 You can find informations about it on[Platform Resource Loader](https://developer.salesforce.com/docs/component-library/bundle/lightning-platform-resource-loader/documentation)
 and [Use Third-Party JavaScript Libraries](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.js_third_party_library)
-
 
 ```
 loadScript(this, apiCC).then(() => {
