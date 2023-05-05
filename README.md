@@ -19,7 +19,7 @@ We demonstrate the possibility to :
 
 Other apiRTC feature can also be implemented based on this tutorial.
 
-## Steps to allow apiRTC to run in your salesforce environment
+## Steps to allow apiRTC to run in your Salesforce environment
 
 ### Load apiRTC as a static ressource
 
@@ -57,3 +57,27 @@ Search for "trusted" in salesforce and apply the following configuration :
 Lightning Web security is required to enable a correct access to WebRTC features
 
 ![Lightning Web Security!](/assets/images/session-settings.png "Lightning Web Security")
+
+
+## Some devlopments informations
+
+As you will see in our source code sample usage of loadScript() is mandatory to load library in LWC :
+
+You can find informations about it on[Platform Resource Loader](https://developer.salesforce.com/docs/component-library/bundle/lightning-platform-resource-loader/documentation)
+and [Use Third-Party JavaScript Libraries](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.js_third_party_library)
+
+
+```
+loadScript(this, apiCC).then(() => {
+
+    this.apiRTCisLoaded = true;
+    this.apiRTC = window.apiRTC;
+    console.debug('apiRTC version :', apiRTC.version);
+    let apiRTCInfoElt = this.template.querySelector(".apiRTCInfo");
+    apiRTCInfoElt.replaceWith('You are using apiRTC version : ' + apiRTC.version);
+    this.apiRTC.setLogLevel(10);
+
+}).catch(err => {
+    console.error('Error when loading ApiRTC :', err)
+});
+```
