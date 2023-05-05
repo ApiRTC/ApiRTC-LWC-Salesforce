@@ -29,6 +29,9 @@ You will need to download apiRTC on our [CDN](https://dev.cdn.apizee.com/apiRTC/
 <a href="https://dev.cdn.apizee.com/apiRTC/v5.0/apiRTC-5.0.10.min.js" download>Click to Download</a>
 
 
+<a href="https://dev.cdn.apizee.com/apiRTC/v5.0/apiRTC-5.0.10.min.js" title="Download" download>Download</a>
+
+
 Make sure to download this apiRTC version : apiRTC-with-sio as we did some adpatation to be able in Salesforce environment.
 
 ![Load apiRTC as a static ressource!](/assets/images/static-ressources-1.png "Static ressources")
