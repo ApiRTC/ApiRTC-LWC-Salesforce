@@ -23,16 +23,15 @@ Other apiRTC feature can also be implemented based on this tutorial.
 
 ### Load apiRTC as a static ressource
 
-You will need to download apiRTC on our [CDN](https://dev.cdn.apizee.com/apiRTC/v5.0/apiRTC-5.0.10.min.js)
+You will need to download apiRTC on our [CDN](https://dev.cdn.apizee.com/apiRTC/apiRTC-with-sio.min.js) (Use "save as")
 
+> **_NOTE:_**  Make sure to download this apiRTC version : apiRTC-with-sio as we did some adpatations to be able to run in Salesforce environment.
 
-<a href="https://dev.cdn.apizee.com/apiRTC/v5.0/apiRTC-5.0.10.min.js" download>Click to Download</a>
+Load the apiRTC file as "apirtcsio" : this name is used in the source code for import :
 
-
-<a href="https://dev.cdn.apizee.com/apiRTC/v5.0/apiRTC-5.0.10.min.js" title="Download" download>Download</a>
-
-
-Make sure to download this apiRTC version : apiRTC-with-sio as we did some adpatation to be able in Salesforce environment.
+```
+import apiCC from "@salesforce/resourceUrl/apirtcsio";
+```
 
 ![Load apiRTC as a static ressource!](/assets/images/static-ressources-1.png "Static ressources")
 
