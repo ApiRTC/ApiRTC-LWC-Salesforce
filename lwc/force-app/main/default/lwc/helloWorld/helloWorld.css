@@ -1,0 +1,36 @@
+.container h2 {
+    margin: 60px;
+    color: #F6F6F6;
+    font-family: Roboto;
+    font-size: 40300
+}
+
+.container .conference {
+
+}
+
+@media only screen and (max-height: 700px) {
+    .container .conference {
+        position: relative;
+    }
+
+    .container .conference .local-container {
+        text-align: right;
+    }
+}
+
+.container .conference .local-container {
+    text-align: right;
+}
+
+.container .conference .remote-container {
+
+}
+
+.container .conference .local-container video {
+    height: 120px;
+}
+
+.container .conference .remote-container video {
+    height: 220px;
+}

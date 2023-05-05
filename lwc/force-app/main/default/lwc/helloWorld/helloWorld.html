@@ -1,0 +1,92 @@
+<template>
+    <lightning-card title="Hello ApiRTC !!!" icon-name="custom:custom14">
+
+        <div class="slds-card__body slds-card__body_inner">
+            This tutorial demonstrate the integration of apiRTC in Salesforce.
+            <div type="text">
+                <h3 class='apiRTCInfo'> </h3>
+            </div>
+            <p>As a remote web client, you can :
+                <lightning-formatted-url
+                    value="https://apizee.github.io/ApiRTC-examples/conferencing_mute_screen/" tooltip=" use our conferencing tutorial client " label=" use our conferencing tutorial client " target="_blank" >
+                </lightning-formatted-url>
+            and connect on the same conference.</p>
+        </div>
+
+        <template if:false={hasConversation}>
+
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="2">
+                </lightning-layout-item>
+
+                <lightning-layout-item size="6">
+                    <lightning-input variant = "label-hidden" name="convNameInput" onchange={convNameInputChange} value={convNameInput} placeholder="Enter your conference name here...">
+                    </lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="4">
+
+                    <lightning-button-icon icon-name="action:join_group" variant="container" class="slds-var-m-left_medium"
+                        alternative-text="Join Conference" title="Join Conference" onclick={start}>
+                        <label>Join Conference</label>
+                    </lightning-button-icon>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <div slot="footer" class="slds-var-m-top_medium slds-var-m-bottom_x-large">
+                <c-call-bar-lwc
+                    camera-is-activate={cameraIsActivate}
+                    micro-is-activate={microIsActivate}
+                    record-is-activate={recordIsActivate}
+                    has-conversation={hasConversation}
+                    onhandletogglemicroevent={handleToggleMicro}
+                    onhandletogglecameraevent={handleToggleCamera}
+                    onhandletogglescreenevent={handleToggleScreen}
+                    onhandletogglerecordevent={handleToggleRecord}
+                >
+                </c-call-bar-lwc>
+            </div>
+        </template>
+
+        <template if:true={hasConversation}>
+
+            <div type="text" class="slds-card__body slds-card__body_inner">
+                <h3 class='convInfo'> </h3>
+            </div>
+
+            <div class="slds-grid slds-grid_align-end slds-p-vertical_xx-small">
+                <lightning-button-icon icon-name="utility:leave_conference" variant="container" class="slds-var-m-left_medium"
+                    alternative-text="Leave Conference" title="Leave Conference" onclick={leave}>
+                    <label>Leave Conference</label>
+                </lightning-button-icon>
+            </div>
+
+            <div class="slds-var-p-horizontal_small">
+                <div class="container">
+                    <div class="conference">
+                        <div class="remote-container" lwc:dom="manual"></div>
+                        <div class="local-container" lwc:dom="manual"></div>
+                    </div>
+
+                    <div type="text" class="slds-card__body slds-card__body_inner">
+                        <div class='recordingInfo'> </div>
+                    </div>
+                </div>
+            </div>
+
+            <div slot="footer" class="slds-var-m-top_medium slds-var-m-bottom_x-large">
+                <c-call-bar-lwc
+                    camera-is-activate={cameraIsActivate}
+                    micro-is-activate={microIsActivate}
+                    record-is-activate={recordIsActivate}
+                    has-conversation={hasConversation}
+                    onhandletogglemicroevent={handleToggleMicro}
+                    onhandletogglecameraevent={handleToggleCamera}
+                    onhandletogglescreenevent={handleToggleScreen}
+                    onhandletogglerecordevent={handleToggleRecord}
+                >
+                </c-call-bar-lwc>
+            </div>
+        </template>
+    </lightning-card>
+</template>

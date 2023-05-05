@@ -1,0 +1,46 @@
+<template>
+    <div class="slds-grid slds-grid_align-center slds-p-vertical_xx-small">
+        <template if:true={microIsActivate}>
+            <lightning-button-icon icon-name="utility:unmuted" variant="container" class="slds-var-m-left_medium"
+                alternative-text="Mute the microphone" title="Mute Micro" onclick={handleToggleMicroAction}>
+                <label>Mute micro</label>
+            </lightning-button-icon>
+        </template>
+        <template if:false={microIsActivate}>
+            <lightning-button-icon icon-name="utility:muted" variant="container" class="slds-var-m-left_medium"
+                alternative-text="Unmute the microphone" title="Unmute Micro" onclick={handleToggleMicroAction}>
+                <label>Unmute micro</label>
+            </lightning-button-icon>
+        </template>
+        <template if:true={cameraIsActivate}>
+            <lightning-button-icon icon-name="utility:video" variant="container" class="slds-var-m-left_medium"
+                alternative-text="Desactivate the camera" title="Desactivate Camera" onclick={handleToggleCameraAction}>
+                <label>Desactivate video</label>
+            </lightning-button-icon>
+        </template>
+        <template if:false={cameraIsActivate}>
+            <lightning-button-icon icon-name="utility:video_off" variant="container" class="slds-var-m-left_medium"
+                alternative-text="Activate the camera" title="Activate Camera" onclick={handleToggleCameraAction}>
+                <label>Activate video</label>
+            </lightning-button-icon>
+        </template>
+        <template if:true={hasConversation}>
+            <lightning-button-icon icon-name="utility:screen" variant="container" class="slds-var-m-left_medium"
+                alternative-text="Toggle screenSharing" title="Toggle screenSharing" onclick={handleToggleScreenAction}>
+                <label>Toggle screenSharing</label>
+            </lightning-button-icon>
+            <template if:false={recordIsActivate}>
+                <lightning-button-icon icon-name="utility:record" variant="container" class="slds-var-m-left_medium"
+                    alternative-text="Toggle record" title="Toggle record" onclick={handleToggleRecordAction}>
+                    <label>Toggle record</label>
+                </lightning-button-icon>
+            </template>
+            <template if:true={recordIsActivate}>
+                <lightning-button-icon icon-name="utility:stop" variant="container" class="slds-var-m-left_medium"
+                    alternative-text="Toggle record" title="Toggle record" onclick={handleToggleRecordAction}>
+                    <label>Toggle record</label>
+                </lightning-button-icon>
+            </template>
+        </template>
+    </div>
+</template>
