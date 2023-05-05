@@ -84,7 +84,7 @@ this.ua = new this.apiRTC.UserAgent({
 });
 ```
 
-With this apiKey, you can use our [conferencing tutorial](https://apizee.github.io/ApiRTC-examples/conferencing_mute_screen/) for a first try.
+With this apiKey, you can use our <a href="https://apizee.github.io/ApiRTC-examples/conferencing_mute_screen/" target="_blank">conferencing tutorial</a> for a first try.
 
 Create your own count [here](https://cloud.apirtc.com/register)
 
