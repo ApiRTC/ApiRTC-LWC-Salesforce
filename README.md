@@ -13,7 +13,7 @@ We demonstrate the possibility to :
 
 Other apiRTC feature can also be implemented based on this tutorial.
 
-Our sample is based on the "Hello World" Lightning Web Component creation in a scratch orgs that you can find [here](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.get_started_sfdx_hello_world).
+Our sample is based on the "Hello World" Lightning Web Component creation in a scratch orgs documentation that you can find [here](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.get_started_sfdx_hello_world).
 
 You can use this reference to understand how to start your Salesforce development environment until the "Create a Lightning Web Component" step.
 
