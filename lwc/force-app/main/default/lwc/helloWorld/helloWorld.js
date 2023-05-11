@@ -43,6 +43,8 @@ export default class HelloWorld extends LightningElement {
                 apiRTCInfoElt.replaceWith('You are using apiRTC version : ' + apiRTC.version);
                 this.apiRTC.setLogLevel(10);
 
+                this.joinConference(this.conversationName);
+
             }).catch(err => {
                 console.error('Error when loading ApiRTC :', err)
             });
